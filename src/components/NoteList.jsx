@@ -2,10 +2,11 @@ import React from "react";
 import '../styles/NoteList.css';
 import Note from './Note'
 
-function NoteList({notes}) {
-    function deleteNote() {
-
-    }
+function NoteList({notes, setNotes}) {
+  function deleteNote(id) {
+    const updatedNotes = notes.filter( note => note.id !== id)
+    setNotes(updatedNotes);
+  }
 
   return (
     <div className="note-list">
