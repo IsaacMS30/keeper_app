@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/CreateArea.css'
 
 function CreateArea({onAdd}) {
   const [note, setNote] = useState({
@@ -22,8 +23,8 @@ function CreateArea({onAdd}) {
   }
 
   return (
-    <div>
-      <form>
+    <div className="create-container">
+      <form className="create-form">
         <input
           name="title"
           onChange={handleChange}

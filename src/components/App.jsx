@@ -1,15 +1,24 @@
 import { useState } from 'react'
 import '../styles/App.css'
-import Header from './Header'
+import CreateArea from './CreateArea'
 import Footer from './Footer'
+import Header from './Header'
 import NoteList from './NoteList'
 
+
 function App() {
-  const [notes, setNotes] = useState([{title: "hola", content: "hellooooooo"}])
+  const [notes, setNotes] = useState([])
+
+  function addNote(newNote) {
+    setNotes([...notes, newNote])
+  }
 
   return (
     <div className='App'>
     <Header/>
+    <CreateArea
+      onAdd = {addNote}
+    />
     <NoteList
       notes = {notes}
       setNotes = {setNotes}
