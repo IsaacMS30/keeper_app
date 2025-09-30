@@ -9,8 +9,18 @@ import SearchBar from './SearchBar'
 
 function App() {
   const [notes, setNotes] = useState([])
+  const [searchValue, setSearchValue] = useState("")
 
-  function addNote(newNote) {
+  const onSearchChange = (event) => {
+    setSearchValue(event.target.value)
+  }
+
+  const filteredNotes = notes.filter( (note) => {
+    return note.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      note.content.toLowerCase().includes(searchValue.toLowerCase())
+  })
+
+  const addNote = (newNote) => {
     setNotes([...notes, newNote])
   }
 
@@ -20,10 +30,12 @@ function App() {
     <CreateArea
       onAdd = {addNote}
     />
-    <SearchBar/>
+    <SearchBar
+      onSearchChange={onSearchChange}
+    />
     {notes.length === 0 && <h5>No notes to show, create one!</h5> }
     {notes.length > 0 && <NoteList
-      notes = {notes}
+      notes = {filteredNotes}
       setNotes = {setNotes}
     />}
     <Footer/>
