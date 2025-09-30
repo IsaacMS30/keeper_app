@@ -19,10 +19,11 @@ function App() {
     <CreateArea
       onAdd = {addNote}
     />
-    <NoteList
+    {notes.length === 0 && <h5>No notes to show, create one!</h5> }
+    {notes.length > 0 && <NoteList
       notes = {notes}
       setNotes = {setNotes}
-    />
+    />}
     <Footer/>
     </div>
   )
