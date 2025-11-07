@@ -19,10 +19,21 @@
   word-wrap: break-word;
 }
 
+.note input, .note textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+
 .note button {
   position: relative;
   float: right;
   padding: 0;
+  margin: 5px;
   color: #f5ba13;
   border: none;
   width: 36px;
